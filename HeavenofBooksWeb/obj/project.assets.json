@@ -907,11 +907,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
       "projectName": "HeavenofBooksWeb",
-      "projectPath": "C:\\Users\\pc\\source\\repos\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
+      "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc\\source\\repos\\HeavenofBooks\\HeavenofBooksWeb\\obj\\",
+      "outputPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
