@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pc/source/repos/HeavennofBooks/HeavenofBooks/HeavenofBooksWeb/Views/Category/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pc/source/repos/HeavennofBooks/HeavenofBooks/HeavenofBooksWeb/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pc/source/repos/HeavennofBooks/HeavenofBooks/HeavenofBooksWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
