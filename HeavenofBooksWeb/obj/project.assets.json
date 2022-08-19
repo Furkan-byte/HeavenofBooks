@@ -3134,6 +3134,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "HeavenofBooks.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "HeavenofBooks.Models": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8"
+        },
+        "compile": {
+          "bin/placeholder/HeavenofBooks.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HeavenofBooks.DataAccess.dll": {}
+        }
+      },
+      "HeavenofBooks.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/HeavenofBooks.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HeavenofBooks.Models.dll": {}
+        }
       }
     }
   },
@@ -9580,10 +9606,21 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "HeavenofBooks.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../HeavenofBooks.Data/HeavenofBooks.DataAccess.csproj",
+      "msbuildProject": "../HeavenofBooks.Data/HeavenofBooks.DataAccess.csproj"
+    },
+    "HeavenofBooks.Models/1.0.0": {
+      "type": "project",
+      "path": "../HeavenofBooks.Models/HeavenofBooks.Models.csproj",
+      "msbuildProject": "../HeavenofBooks.Models/HeavenofBooks.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "HeavenofBooks.DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.8",
       "Microsoft.EntityFrameworkCore >= 6.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8",
@@ -9621,7 +9658,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

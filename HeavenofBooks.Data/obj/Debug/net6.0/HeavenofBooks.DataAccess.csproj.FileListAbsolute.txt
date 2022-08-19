@@ -1,0 +1,17 @@
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.csproj.AssemblyReference.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.AssemblyInfoInputs.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.AssemblyInfo.cs
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.DataAccess.deps.json
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.DataAccess.runtimeconfig.json
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.DataAccess.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.DataAccess.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.Models.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.Models.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.csproj.CopyComplete
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\refint\HeavenofBooks.DataAccess.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.genruntimeconfig.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\ref\HeavenofBooks.DataAccess.dll

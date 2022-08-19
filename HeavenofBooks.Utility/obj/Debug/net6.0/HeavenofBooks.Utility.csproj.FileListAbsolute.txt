@@ -1,0 +1,12 @@
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\bin\Debug\net6.0\HeavenofBooks.Utility.deps.json
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\bin\Debug\net6.0\HeavenofBooks.Utility.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\bin\Debug\net6.0\HeavenofBooks.Utility.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.csproj.AssemblyReference.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.AssemblyInfoInputs.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.AssemblyInfo.cs
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.csproj.CoreCompileInputs.cache
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\refint\HeavenofBooks.Utility.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\HeavenofBooks.Utility.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Utility\obj\Debug\net6.0\ref\HeavenofBooks.Utility.dll
