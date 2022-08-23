@@ -11,5 +11,6 @@ namespace HeavenofBooks.DataAccess.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<CoverType> coverTypes { get; set; }
     }
 }

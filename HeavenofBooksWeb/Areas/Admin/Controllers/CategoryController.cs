@@ -4,8 +4,9 @@ using HeavenofBooks.DataAccess.Repository.IRepository;
 using HeavenofBooks.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HeavenofBooksWeb.Controllers
+namespace HeavenofBooksWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitofWork _db;
@@ -43,11 +44,11 @@ namespace HeavenofBooksWeb.Controllers
         }
         public IActionResult EditCategory(int? id)
         {
-            if (id ==null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Category.GetFirstOrDefault(u =>u.Id==id);
+            var categoryFromDb = _db.Category.GetFirstOrDefault(u => u.Id == id);
             return View(categoryFromDb);
         }
         [HttpPost]
@@ -73,20 +74,20 @@ namespace HeavenofBooksWeb.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Category.GetFirstOrDefault(u =>u.Id==id);
+            var categoryFromDb = _db.Category.GetFirstOrDefault(u => u.Id == id);
             return View(categoryFromDb);
         }
-        [HttpPost,ActionName("DeleteCategory")]
+        [HttpPost, ActionName("DeleteCategory")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteCategoryPost(int? id)
         {
             var categoryItem = _db.Category.GetFirstOrDefault(u => u.Id == id);
-            if (categoryItem==null)
+            if (categoryItem == null)
             {
                 return NotFound();
             }
-                _db.Category.Remove(categoryItem);
-                _db.Save();
+            _db.Category.Remove(categoryItem);
+            _db.Save();
             TempData["Success"] = "Category deleted successufly!";
             return RedirectToAction("Index");
 
