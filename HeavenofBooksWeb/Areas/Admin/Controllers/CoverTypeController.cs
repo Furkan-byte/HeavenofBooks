@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 namespace HeavenofBooksWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoryController : Controller
+    public class CoverTypeController : Controller
     {
         private readonly IUnitofWork _db;
 
-        public CategoryController(IUnitofWork db)
+        public CoverTypeController(IUnitofWork db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Category> dbContextVariables = _db.Category.GetAll();
+            IEnumerable<CoverType> dbContextVariables = _db.CoverType.GetAll();
             return View(dbContextVariables);
         }
         public IActionResult Create()
@@ -27,20 +27,17 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
+        public IActionResult Create(CoverType coverType)
         {
-            if (category.Name == category.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("Name", "Name and DisplayOrder values are matching!!");
-            }
+          
             if (ModelState.IsValid)
             {
-                _db.Category.Add(category);
+                _db.CoverType.Add(coverType);
                 _db.Save();
-                TempData["Success"] = "Category created successufly!";
+                TempData["Success"] = "Cover Type created successufly!";
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(coverType);
         }
         public IActionResult Edit(int? id)
         {
@@ -48,25 +45,22 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Category.GetFirstOrDefault(u => u.Id == id);
-            return View(categoryFromDb);
+            var coverTypeFromDb = _db.CoverType.GetFirstOrDefault(u => u.Id == id);
+            return View(coverTypeFromDb);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(CoverType coverType)
         {
-            if (category.Name == category.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("Name", "Name and DisplayOrder values are matching!!");
-            }
+            
             if (ModelState.IsValid)
             {
-                _db.Category.Update(category);
+                _db.CoverType.Update(coverType);
                 _db.Save();
-                TempData["Success"] = "Category updated successufly!";
+                TempData["Success"] = "Cover Type updated successufly!";
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(coverType);
         }
         public IActionResult Delete(int? id)
         {
@@ -74,21 +68,21 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Category.GetFirstOrDefault(u => u.Id == id);
-            return View(categoryFromDb);
+            var coverTypeFromDb = _db.CoverType.GetFirstOrDefault(u => u.Id == id);
+            return View(coverTypeFromDb);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteCategoryPost(int? id)
         {
-            var categoryItem = _db.Category.GetFirstOrDefault(u => u.Id == id);
-            if (categoryItem == null)
+            var coverTypeItem = _db.CoverType.GetFirstOrDefault(u => u.Id == id);
+            if (coverTypeItem == null)
             {
                 return NotFound();
             }
-            _db.Category.Remove(categoryItem);
+            _db.CoverType.Remove(coverTypeItem);
             _db.Save();
-            TempData["Success"] = "Category deleted successufly!";
+            TempData["Success"] = "Cover Type deleted successufly!";
             return RedirectToAction("Index");
 
         }
