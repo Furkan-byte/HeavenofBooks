@@ -16,7 +16,7 @@
     </div>
     <br />
 
-<table class="table table-bordered table-striped" style="width:100%">
+<table id="tblData" class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -28,7 +28,7 @@
             <th>
                 Price
             </th>
-            <th>
+           <th>
                 Author
             </th>
             <th>
@@ -37,8 +37,11 @@
             
             <th class="w-25">
                 Operations
-            </th>
+            </th> 
         </tr>
     </thead>
 </table>
 </div>
+@section scripts{
+    <script src="~/js/Product.js"></script>
+}

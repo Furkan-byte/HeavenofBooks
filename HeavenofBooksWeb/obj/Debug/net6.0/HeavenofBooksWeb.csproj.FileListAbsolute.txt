@@ -581,3 +581,5 @@ C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\HeavenofBooks.Models.dll
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\HeavenofBooks.DataAccess.pdb
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\HeavenofBooks.Models.pdb
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

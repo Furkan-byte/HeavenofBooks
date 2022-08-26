@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b+OVum8M6MM/4Mq24N1DUqFCkOgu+uaX8Bt+0ywXHRg=",
+  "Hash": "CeGBiX85sNu2r1Fnf0p4XIgGllAgBgFOf9Nc85I6DtM=",
   "Source": "HeavenofBooksWeb",
   "BasePath": "_content/HeavenofBooksWeb",
   "Mode": "Default",
@@ -100,6 +100,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\images\\products\\967348d1-a280-49da-a3ae-8209a4fec8c8.jpg",
+      "SourceId": "HeavenofBooksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\",
+      "BasePath": "_content/HeavenofBooksWeb",
+      "RelativePath": "images/products/967348d1-a280-49da-a3ae-8209a4fec8c8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\967348d1-a280-49da-a3ae-8209a4fec8c8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\js\\Product.js",
+      "SourceId": "HeavenofBooksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\",
+      "BasePath": "_content/HeavenofBooksWeb",
+      "RelativePath": "js/Product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Product.js"
     },
     {
       "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\js\\site.js",
