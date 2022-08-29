@@ -1,4 +1,5 @@
-﻿using HeavenofBooks.Models;
+﻿using HeavenofBooks.DataAccess.Repository.IRepository;
+using HeavenofBooks.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,15 +9,27 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitofWork _contextUiO;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IUnitofWork contextUiO)
         {
             _logger = logger;
+            _contextUiO = contextUiO;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Product> productList = _contextUiO.Product.GetAll(includeProperties: "Category,CoverType");
+            return View(productList);
+        }
+        public IActionResult Details(int id)
+        {
+            ShoppingCart shoppingCart = new()
+            {
+                Counter = 1,
+                Product = _contextUiO.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,CoverType"),
+            };
+                   return View(shoppingCart);
         }
 
         public IActionResult Privacy()
