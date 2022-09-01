@@ -16,5 +16,6 @@ namespace HeavenofBooks.DataAccess.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<AppUser> appUser { get; set; }
         public DbSet<AppCompany> Companies { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
     }
 }
