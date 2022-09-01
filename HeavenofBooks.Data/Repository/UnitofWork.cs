@@ -20,6 +20,8 @@ namespace HeavenofBooks.DataAccess.Repository
             Company = new CompanyRepository(_context);
             AppUser = new AppUserRepository(_context);
             ShoppingCart = new ShoppingCartRepository(_context);
+            OrderHeader = new OrderHeaderRepository(_context);
+            OrderDetail = new OrderDetailsRepository(_context);
         }
         public ICategoryRepository Category { get; private set; }
         public ICoverTypeRepository CoverType { get; private set; }
@@ -27,6 +29,8 @@ namespace HeavenofBooks.DataAccess.Repository
         public ICompanyRepository Company { get; private set; }
         public IAppUserRepository AppUser { get; private set; }
         public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IOrderHeaderRepository OrderHeader { get; private set; }
+        public IOrderDetailsRepository OrderDetail { get; private set; }
 
         public void Save()
         {

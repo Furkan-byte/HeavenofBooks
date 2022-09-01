@@ -23,5 +23,7 @@ namespace HeavenofBooks.Models
         [ForeignKey("AppUserId")]
         [ValidateNever]
         public AppUser appUser { get; set; }
+        [NotMapped]
+        public double Price { get; set; }
     }
 }
