@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vcpBXEpH8u0bJVYIl2+S1t+PN+ek1H978SEkMNt1OuQ=",
+  "Hash": "Yat6vywyZJtE+ZV133KNxK0riBXJUY7iEHXh0oh4sjY=",
   "Source": "HeavenofBooksWeb",
   "BasePath": "_content/HeavenofBooksWeb",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\images\\harry_potter.jpg",
+      "SourceId": "HeavenofBooksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\",
+      "BasePath": "_content/HeavenofBooksWeb",
+      "RelativePath": "images/harry_potter.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\harry_potter.jpg"
+    },
+    {
       "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\images\\products\\0c3065c4-5a73-46b9-991d-2b71f9aec297.jpg",
       "SourceId": "HeavenofBooksWeb",
       "SourceType": "Discovered",
@@ -1171,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Company.js"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\js\\Order.js",
+      "SourceId": "HeavenofBooksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\",
+      "BasePath": "_content/HeavenofBooksWeb",
+      "RelativePath": "js/Order.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Order.js"
     },
     {
       "Identity": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\wwwroot\\js\\Product.js",

@@ -20,7 +20,7 @@ namespace HeavenofBooks.Models
 
         [Required]
         public int ProductId { get; set; }
-        [ForeignKey("OrderId")]
+        [ForeignKey("ProductId")]
         [ValidateNever]
         public Product product { get; set; }
         public int Count { get; set; }

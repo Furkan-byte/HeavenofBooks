@@ -4,6 +4,7 @@ using HeavenofBooks.Models.ViewModels;
 using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Stripe.Checkout;
 using System.Security.Claims;
 
 namespace HeavenofBooksWeb.Areas.Customer.Controllers
@@ -99,9 +100,20 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                 shoppingCartVM.OrderHeader.OrderTotal -= shoppingCartVM.OrderHeader.OrderTotal / 50;
             }
 
+            AppUser appUser = _contextUoW.AppUser.GetFirstOrDefault(u => u.Id == claim.Value);
+            if (appUser.Company.GetValueOrDefault() ==0)
+            {
+                shoppingCartVM.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusPending;
+                shoppingCartVM.OrderHeader.OrderStatus = StaticDetails.StatusPending;
+            }
+            else
+            {
+                shoppingCartVM.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusDelayedPayment;
+                shoppingCartVM.OrderHeader.OrderStatus = StaticDetails.StatusApproved;
+            }
+
             _contextUoW.OrderHeader.Add(shoppingCartVM.OrderHeader);
             _contextUoW.Save();
-
             foreach (var cart in shoppingCartVM.ListCart)
             {
                 OrderDetail orderDetail = new()
@@ -114,13 +126,80 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                 _contextUoW.OrderDetail.Add(orderDetail);
                 _contextUoW.Save();
             }
+            if (appUser.Company.GetValueOrDefault() == 0)
+            {
 
-            _contextUoW.ShoppingCart.RemoveRange(shoppingCartVM.ListCart);
+            
+            //stripe settings
+            var domain = "https://localhost:44335/";
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+                {
+                    "card",
+                },
+              
+                LineItems = new List<SessionLineItemOptions>(),
+                Mode = "payment",
+                SuccessUrl = domain+$"customer/cart/OrderConfirmation?id={shoppingCartVM.OrderHeader.Id}",
+                CancelUrl = domain+$"customer/cart/index",
+            };
+
+            foreach (var item in shoppingCartVM.ListCart)
+            {
+                var sessionLineItem = new SessionLineItemOptions
+                {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        UnitAmount = (long)(item.Price * 100),
+                        Currency = "usd",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = item.Product.Title,
+                        },
+
+                    },
+                    Quantity = item.Counter,
+                };
+                options.LineItems.Add(sessionLineItem);
+            }
+            var service = new SessionService();
+            Session session = service.Create(options);
+            _contextUoW.OrderHeader.UpdateStripePaymentId(shoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
             _contextUoW.Save();
 
-            return RedirectToAction("Index" , "Home");
-        }
+            Response.Headers.Add("Location", session.Url);
+            return new StatusCodeResult(303);
+            }
+            else
+            {
+                return RedirectToAction("OrderConfirmation", "Cart", new { id = shoppingCartVM.OrderHeader.Id });
+            }
+            //_contextUoW.ShoppingCart.RemoveRange(shoppingCartVM.ListCart);
+            //_contextUoW.Save();
 
+            //return RedirectToAction("Index", "Home");
+        }
+        public IActionResult OrderConfirmation(int id)
+        {
+            OrderHeader orderHeader = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == id);
+            if (orderHeader.PaymentStatus != StaticDetails.PaymentStatusDelayedPayment)
+            {
+                var service = new SessionService();
+                Session session = service.Get(orderHeader.SessionId);
+                if (session.PaymentStatus.ToLower() == "paid")
+                {
+                    _contextUoW.OrderHeader.UpdateStatus(id, StaticDetails.StatusApproved, StaticDetails.PaymentStatusApproved);
+                    _contextUoW.Save();
+                }
+            }
+            
+            List<ShoppingCart> shoppingCarts = _contextUoW.ShoppingCart.GetAll(u => u.AppUserId == orderHeader.AppUserId).ToList();
+            _contextUoW.ShoppingCart.RemoveRange(shoppingCarts);
+            _contextUoW.Save();
+
+            return View(id);
+        }
         public IActionResult Plus(int cartId)
         {
             var cart = _contextUoW.ShoppingCart.GetFirstOrDefault(u => u.Id == cartId);

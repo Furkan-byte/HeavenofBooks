@@ -115,6 +115,8 @@ namespace HeavenofBooks.DataAccess.Migrations
 
                     b.HasIndex("OrderId");
 
+                    b.HasIndex("ProductId");
+
                     b.ToTable("OrderDetails");
                 });
 
@@ -516,7 +518,7 @@ namespace HeavenofBooks.DataAccess.Migrations
 
                     b.HasOne("HeavenofBooks.Models.Product", "product")
                         .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

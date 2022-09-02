@@ -36,5 +36,12 @@ namespace HeavenofBooks.DataAccess.Repository
                 }
             }
         }
+
+        public void UpdateStripePaymentId(int id, string sessionId, string? paymentIntentId)
+        {
+            var orderfromDb = _context.OrderHeaders.FirstOrDefault(u => u.Id == id);
+           orderfromDb.SessionId = sessionId;
+            orderfromDb.PaymentIntentId = paymentIntentId;
+        }
     }
 }
