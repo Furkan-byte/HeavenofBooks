@@ -1,5 +1,7 @@
 ﻿using HeavenofBooks.DataAccess.Repository.IRepository;
+using HeavenofBooks.Models;
 using HeavenofBooks.Models.ViewModels;
+using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -69,6 +71,54 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                   shoppingCartVM.OrderHeader.OrderTotal -= shoppingCartVM.OrderHeader.OrderTotal / 50;
               }
               return View(shoppingCartVM);
+        }
+        [HttpPost]
+        [ActionName("Summary")]
+        [ValidateAntiForgeryToken]
+        public IActionResult SummaryPOST(ShoppingCartVM shoppingCartVM)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            shoppingCartVM.ListCart = _contextUoW.ShoppingCart.GetAll(
+                u => u.AppUserId == claim.Value, includeProperties: "Product");
+
+            shoppingCartVM.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusPending;
+            shoppingCartVM.OrderHeader.OrderStatus = StaticDetails.StatusPending;
+            shoppingCartVM.OrderHeader.OrderDate = System.DateTime.Now;
+            shoppingCartVM.OrderHeader.AppUserId = claim.Value;
+
+            foreach (var cart in shoppingCartVM.ListCart)
+            {
+                cart.Price = GetPriceBasedOnQuantity(cart.Counter, cart.Product.Price,
+                    cart.Product.Price50, cart.Product.Price100);
+                shoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Counter);
+            }
+            if (shoppingCartVM.OrderHeader.OrderTotal >= 2500)
+            {
+                shoppingCartVM.OrderHeader.OrderTotal -= shoppingCartVM.OrderHeader.OrderTotal / 50;
+            }
+
+            _contextUoW.OrderHeader.Add(shoppingCartVM.OrderHeader);
+            _contextUoW.Save();
+
+            foreach (var cart in shoppingCartVM.ListCart)
+            {
+                OrderDetail orderDetail = new()
+                {
+                    ProductId = cart.ProductId,
+                    OrderId = shoppingCartVM.OrderHeader.Id,
+                    Price = cart.Price,
+                    Count = cart.Counter
+                };
+                _contextUoW.OrderDetail.Add(orderDetail);
+                _contextUoW.Save();
+            }
+
+            _contextUoW.ShoppingCart.RemoveRange(shoppingCartVM.ListCart);
+            _contextUoW.Save();
+
+            return RedirectToAction("Index" , "Home");
         }
 
         public IActionResult Plus(int cartId)

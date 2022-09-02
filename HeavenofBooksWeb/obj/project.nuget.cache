@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "I0iV5ZaUxjHk4Ha6R8+ipCUcS06/30QAVIoVhfa8dHGiYl5VGwFeySTocljUpI1c1gPZzElFqT7FdeeMpMImgw==",
+  "dgSpecHash": "Qw1QDhWbjADfIhXwX8hvVxEjCYXCZADSqdDyEGTymVTurcUThl1m71/fS/DDQEdHBVtYftDbHJtBQkApBMn6Lg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
   "expectedPackageFiles": [
@@ -139,6 +139,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\stripe.net\\40.6.0\\stripe.net.40.6.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

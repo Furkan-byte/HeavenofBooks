@@ -47,6 +47,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
             if (cartFromDb ==null)
             {
                 _contextUoW.ShoppingCart.Add(shoppingCart);
+                TempData["Success"] = "Product added into cart successfully.";
             }
             else
             {
