@@ -4,6 +4,7 @@ using HeavenofBooks.Models.ViewModels;
 using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 using System.Security.Claims;
 
 namespace HeavenofBooksWeb.Areas.Admin.Controllers
@@ -13,6 +14,7 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
     public class OrderController : Controller
     {
         private readonly IUnitofWork _contextUoW;
+        [BindProperty]
         public OrderVM orderVM { get; set; }
         public OrderController(IUnitofWork contextUoW)
         {
@@ -31,7 +33,84 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
             };
             return View(orderVM);
         }
-
+        [HttpPost]
+        [Authorize(Roles = StaticDetails.Role_Admin + ","+ StaticDetails.Role_Employee)]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateOrderDetail()
+        {
+            var orderHeaderfromDB = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == orderVM.orderHeader.Id,tracked:false);
+            orderHeaderfromDB.Name = orderVM.orderHeader.Name;
+            orderHeaderfromDB.PhoneNumber = orderVM.orderHeader.PhoneNumber;
+            orderHeaderfromDB.StreetAddress = orderVM.orderHeader.StreetAddress;
+            orderHeaderfromDB.City = orderVM.orderHeader.City;
+            orderHeaderfromDB.State = orderVM.orderHeader.State;
+            orderHeaderfromDB.PostalCode = orderVM.orderHeader.PostalCode;
+			if (orderVM.orderHeader.Carrier !=null)
+			{
+                orderHeaderfromDB.Carrier = orderVM.orderHeader.Carrier;
+            }
+            if (orderVM.orderHeader.TrackingNumber != null)
+            {
+                orderHeaderfromDB.TrackingNumber = orderVM.orderHeader.TrackingNumber;
+            }
+            _contextUoW.OrderHeader.Update(orderHeaderfromDB);
+            _contextUoW.Save();
+            TempData["Success"] = "Order Details updated successfuly.";
+            return RedirectToAction("Details", "Order", new {orderId = orderHeaderfromDB.Id});
+        }
+        [HttpPost]
+        [Authorize(Roles = StaticDetails.Role_Admin + "," + StaticDetails.Role_Employee)]
+        [ValidateAntiForgeryToken]
+        public IActionResult StartProcessing()
+        {
+            _contextUoW.OrderHeader.UpdateStatus(orderVM.orderHeader.Id, StaticDetails.StatusInProcess);
+            _contextUoW.Save();
+            TempData["Success"] = "Order Status updated successfuly.";
+            return RedirectToAction("Details", "Order", new { orderId = orderVM.orderHeader.Id });
+        }
+        [HttpPost]
+        [Authorize(Roles = StaticDetails.Role_Admin + "," + StaticDetails.Role_Employee)]
+        [ValidateAntiForgeryToken]
+        public IActionResult ShipOrder()
+        {
+            var orderHeaderfromDB = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == orderVM.orderHeader.Id, tracked: false);
+            orderHeaderfromDB.TrackingNumber = orderVM.orderHeader.TrackingNumber;
+            orderHeaderfromDB.Carrier = orderVM.orderHeader.Carrier;
+            orderHeaderfromDB.OrderStatus = StaticDetails.StatusShipped;
+            orderHeaderfromDB.ShippingDate = DateTime.Now;
+            _contextUoW.OrderHeader.Update(orderHeaderfromDB);
+            _contextUoW.Save();
+            TempData["Success"] = "Order Shipped successfuly.";
+            return RedirectToAction("Details", "Order", new { orderId = orderVM.orderHeader.Id });
+        }
+        [HttpPost]
+        [Authorize(Roles = StaticDetails.Role_Admin + "," + StaticDetails.Role_Employee)]
+        [ValidateAntiForgeryToken]
+        public IActionResult CancelOrder()
+        {
+            var orderHeaderfromDB = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == orderVM.orderHeader.Id, tracked: false);
+            if (orderHeaderfromDB.PaymentStatus == StaticDetails.PaymentStatusApproved)
+            {
+                var options = new RefundCreateOptions
+                {
+                    Reason = RefundReasons.RequestedByCustomer,
+                    PaymentIntent = orderHeaderfromDB.PaymentIntentId
+                };
+                var service = new RefundService();
+                Refund refund = service.Create(options);
+                _contextUoW.OrderHeader.UpdateStatus(orderHeaderfromDB.Id ,
+                    StaticDetails.StatusCancelled,StaticDetails.StatusRefunded);
+            }
+            else
+            {
+                _contextUoW.OrderHeader.UpdateStatus(orderHeaderfromDB.Id,
+                    StaticDetails.StatusCancelled, StaticDetails.StatusCancelled);
+            }
+           
+            _contextUoW.Save();
+            TempData["Success"] = "Order Cancelled successfuly.";
+            return RedirectToAction("Details", "Order", new { orderId = orderVM.orderHeader.Id });
+        }
         #region API CALLS
         [HttpGet]
         public IActionResult GetAll(string status)

@@ -23,7 +23,7 @@ namespace HeavenofBooks.DataAccess.Repository
 
         }
 
-        public void UpdateStatus(int id, string orderStatus, string? paymentstatus)
+        public void UpdateStatus(int id, string orderStatus, string? paymentstatus=null)
         {
             var orderfromDb = _context.OrderHeaders.FirstOrDefault(u=>u.Id == id);
             if (orderStatus!=null)
@@ -40,7 +40,8 @@ namespace HeavenofBooks.DataAccess.Repository
         public void UpdateStripePaymentId(int id, string sessionId, string? paymentIntentId)
         {
             var orderfromDb = _context.OrderHeaders.FirstOrDefault(u => u.Id == id);
-           orderfromDb.SessionId = sessionId;
+            orderfromDb.PaymentDate = DateTime.Now;
+            orderfromDb.SessionId = sessionId;
             orderfromDb.PaymentIntentId = paymentIntentId;
         }
     }
