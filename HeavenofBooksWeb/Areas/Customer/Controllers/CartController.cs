@@ -138,7 +138,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                 {
                     "card",
                 },
-              
+                
                 LineItems = new List<SessionLineItemOptions>(),
                 Mode = "payment",
                 SuccessUrl = domain+$"customer/cart/OrderConfirmation?id={shoppingCartVM.OrderHeader.Id}",
@@ -152,7 +152,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         UnitAmount = (long)(item.Price * 100),
-                        Currency = "usd",
+                        Currency = "try",
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = item.Product.Title,
@@ -165,7 +165,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
             }
             var service = new SessionService();
             Session session = service.Create(options);
-            _contextUoW.OrderHeader.UpdateStripePaymentId(shoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+            _contextUoW.OrderHeader.UpdateSessionId(shoppingCartVM.OrderHeader.Id, session.Id);
             _contextUoW.Save();
 
             Response.Headers.Add("Location", session.Url);
@@ -190,6 +190,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                 if (session.PaymentStatus.ToLower() == "paid")
                 {
                     _contextUoW.OrderHeader.UpdateStatus(id, StaticDetails.StatusApproved, StaticDetails.PaymentStatusApproved);
+                    _contextUoW.OrderHeader.UpdatePaymentIntentId(id, session.PaymentIntentId);
                     _contextUoW.Save();
                 }
             }
@@ -210,7 +211,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
         public IActionResult Minus(int cartId)
         {
             var cart = _contextUoW.ShoppingCart.GetFirstOrDefault(u => u.Id == cartId);
-            if (cart.Counter<1)
+            if (cart.Counter<=1)
             {
                 _contextUoW.ShoppingCart.Remove(cart);
             }

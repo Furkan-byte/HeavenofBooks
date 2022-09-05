@@ -11,6 +11,7 @@ namespace HeavenofBooks.DataAccess.Repository.IRepository
     {
         void Update(OrderHeader item);
         void UpdateStatus(int id, string orderStatus, string? paymentStatus=null);
-        void UpdateStripePaymentId(int id, string sessionId, string? paymentIntentId);
+        void UpdateSessionId(int id, string sessionId);
+        void UpdatePaymentIntentId(int id, string paymentIntentId);
     }
 }

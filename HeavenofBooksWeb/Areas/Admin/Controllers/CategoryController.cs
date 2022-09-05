@@ -2,11 +2,14 @@
 using HeavenofBooks.DataAccess.Data;
 using HeavenofBooks.DataAccess.Repository.IRepository;
 using HeavenofBooks.Models;
+using HeavenofBooks.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HeavenofBooksWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = StaticDetails.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitofWork _db;

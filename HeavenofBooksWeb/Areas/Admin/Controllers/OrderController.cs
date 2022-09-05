@@ -5,6 +5,7 @@ using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
+using Stripe.Checkout;
 using System.Security.Claims;
 
 namespace HeavenofBooksWeb.Areas.Admin.Controllers
@@ -32,6 +33,72 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
                 orderDetail = _contextUoW.OrderDetail.GetAll(u => u.OrderId == orderId, includeProperties: "product"),
             };
             return View(orderVM);
+        }
+        [ActionName("Details")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DetailsPAY_NOW()
+        {
+            orderVM.orderHeader = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == orderVM.orderHeader.Id, includeProperties: "appUser");
+            orderVM.orderDetail = _contextUoW.OrderDetail.GetAll(u => u.OrderId == orderVM.orderHeader.Id, includeProperties: "product");
+
+            var domain = "https://localhost:44335/";
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+                {
+                    "card",
+                },
+
+                LineItems = new List<SessionLineItemOptions>(),
+                Mode = "payment",
+                SuccessUrl = domain + $"admin/order/PaymentConfirmation?orderHeaderid={orderVM.orderHeader.Id}",
+                CancelUrl = domain + $"admin/order/details=orderId={orderVM.orderHeader.Id}",
+            };
+
+            foreach (var item in orderVM.orderDetail)
+            {
+                var sessionLineItem = new SessionLineItemOptions
+                {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        UnitAmount = (long)(item.Price * 100),
+                        Currency = "try",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = item.product.Title,
+                        },
+
+                    },
+                    Quantity = item.Count,
+                };
+                options.LineItems.Add(sessionLineItem);
+            }
+            var service = new SessionService();
+            Session session = service.Create(options);
+            _contextUoW.OrderHeader.UpdateSessionId(orderVM.orderHeader.Id, session.Id);
+            _contextUoW.Save();
+
+            Response.Headers.Add("Location", session.Url);
+            return new StatusCodeResult(303);
+
+        }
+
+        public IActionResult PaymentConfirmation(int orderHeaderid)
+        {
+            OrderHeader orderHeader = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == orderHeaderid);
+            if (orderHeader.PaymentStatus == StaticDetails.PaymentStatusDelayedPayment)
+            {
+                var service = new SessionService();
+                Session session = service.Get(orderHeader.SessionId);
+                if (session.PaymentStatus.ToLower() == "paid")
+                {
+                    _contextUoW.OrderHeader.UpdateStatus(orderHeaderid, orderHeader.OrderStatus, StaticDetails.PaymentStatusApproved);
+                    _contextUoW.OrderHeader.UpdatePaymentIntentId(orderHeaderid, session.PaymentIntentId);
+                    _contextUoW.Save();
+                }
+            }
+            return View(orderHeaderid);
         }
         [HttpPost]
         [Authorize(Roles = StaticDetails.Role_Admin + ","+ StaticDetails.Role_Employee)]
@@ -78,6 +145,10 @@ namespace HeavenofBooksWeb.Areas.Admin.Controllers
             orderHeaderfromDB.Carrier = orderVM.orderHeader.Carrier;
             orderHeaderfromDB.OrderStatus = StaticDetails.StatusShipped;
             orderHeaderfromDB.ShippingDate = DateTime.Now;
+            if (orderHeaderfromDB.PaymentStatus == StaticDetails.PaymentStatusDelayedPayment)
+            {
+                orderHeaderfromDB.PaymentDueDate = DateTime.Now.AddDays(30);
+            }
             _contextUoW.OrderHeader.Update(orderHeaderfromDB);
             _contextUoW.Save();
             TempData["Success"] = "Order Shipped successfuly.";

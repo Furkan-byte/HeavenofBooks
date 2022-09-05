@@ -53,14 +53,15 @@
             <a style="text-decoration:none;" asp-controller="Order" 
               asp-action="Index" asp-route-status="completed">
               <li class="list-group-item @completed">Completed</li>
-            </a>
-            <a style="text-decoration:none;" asp-controller="Order" 
-              asp-action="Index" asp-route-status="paymentdelayed">
-              <li class="list-group-item @paymentdelayed>Payment Pending</li>
-            </a>
+            </a>            
             <a style="text-decoration:none;" asp-controller="Order" 
               asp-action="Index" asp-route-status="approved">
               <li class="list-group-item @approved">Approved</li>
+            </a>
+            <a style="text-decoration:none;" asp-controller="Order"
+            asp-action="Index" asp-route-status="paymentdelayed">
+            <li class="list-group-item @paymentdelayed">Payment Delayed</li>
+
             </a>
             <a style="text-decoration:none;" asp-controller="Order" 
               asp-action="Index" asp-route-status="all">

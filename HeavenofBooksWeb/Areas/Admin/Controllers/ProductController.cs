@@ -3,12 +3,15 @@ using HeavenofBooks.DataAccess.Data;
 using HeavenofBooks.DataAccess.Repository.IRepository;
 using HeavenofBooks.Models;
 using HeavenofBooks.Models.ViewModels;
+using HeavenofBooks.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HeavenofBooksWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = StaticDetails.Role_Admin + "," + StaticDetails.Role_User_Company)]
     public class ProductController : Controller
     {
         private readonly IUnitofWork _context;

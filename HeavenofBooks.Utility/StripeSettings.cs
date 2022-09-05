@@ -8,7 +8,7 @@ namespace HeavenofBooks.Utility
 {
     public class StripeSettings
     {
-        public string secretKey { get; set; }
-        public string publishableKey { get; set; }
+        public string SecretKey { get; set; }
+        public string PublishableKey { get; set; }
     }
 }
