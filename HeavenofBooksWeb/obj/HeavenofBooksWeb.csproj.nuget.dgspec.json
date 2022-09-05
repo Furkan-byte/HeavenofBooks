@@ -33,6 +33,9 @@
             "projectReferences": {
               "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj": {
                 "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj"
+              },
+              "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
+                "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj"
               }
             }
           }
@@ -195,9 +198,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.0, )"
             }
           },
           "imports": [
@@ -265,6 +276,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.8, )"

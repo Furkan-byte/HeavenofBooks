@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,21 @@ namespace HeavenofBooks.Utility
     {
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            //This is a fake implementation class for EmailSender 
+            var emailToSend = new MimeMessage();
+            emailToSend.From.Add(MailboxAddress.Parse("heavenofbooks0@gmail.com"));
+            emailToSend.To.Add(MailboxAddress.Parse(email));
+            emailToSend.Subject = subject;
+            emailToSend.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = htmlMessage};
+            //sending email with smtp
+
+            using(var emailClient = new SmtpClient())
+            {
+                emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                emailClient.Authenticate("heavenofbooks0@gmail.com", "nkkqcapwnuflnqly");
+                emailClient.Send(emailToSend);
+                emailClient.Disconnect(true);
+            }
+
             return Task.CompletedTask;
         }
     }

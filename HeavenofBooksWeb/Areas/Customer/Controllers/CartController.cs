@@ -3,6 +3,7 @@ using HeavenofBooks.Models;
 using HeavenofBooks.Models.ViewModels;
 using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 using System.Security.Claims;
@@ -14,11 +15,13 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
     public class CartController : Controller
     {
         private readonly IUnitofWork _contextUoW;
+        private readonly IEmailSender _emailSender;
         public ShoppingCartVM shoppingCartVM { get; set; }
         public int OrderTotal { get; set; }
-        public CartController(IUnitofWork contextUoW)
+        public CartController(IUnitofWork contextUoW, IEmailSender emailSender)
         {
             _contextUoW = contextUoW;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -182,7 +185,7 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
         }
         public IActionResult OrderConfirmation(int id)
         {
-            OrderHeader orderHeader = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == id);
+            OrderHeader orderHeader = _contextUoW.OrderHeader.GetFirstOrDefault(u => u.Id == id,includeProperties:"appUser");
             if (orderHeader.PaymentStatus != StaticDetails.PaymentStatusDelayedPayment)
             {
                 var service = new SessionService();
@@ -191,11 +194,14 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
                 {
                     _contextUoW.OrderHeader.UpdateStatus(id, StaticDetails.StatusApproved, StaticDetails.PaymentStatusApproved);
                     _contextUoW.OrderHeader.UpdatePaymentIntentId(id, session.PaymentIntentId);
+                    _emailSender.SendEmailAsync(orderHeader.appUser.Email, "New Order - HeavenofBooks", "<p>We got your request for products.</p>" +
+                        "<p>Order has been created</p>");
                     _contextUoW.Save();
                 }
             }
             
             List<ShoppingCart> shoppingCarts = _contextUoW.ShoppingCart.GetAll(u => u.AppUserId == orderHeader.AppUserId).ToList();
+            HttpContext.Session.Clear();
             _contextUoW.ShoppingCart.RemoveRange(shoppingCarts);
             _contextUoW.Save();
 
@@ -214,6 +220,8 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
             if (cart.Counter<=1)
             {
                 _contextUoW.ShoppingCart.Remove(cart);
+                var count = _contextUoW.ShoppingCart.GetAll(u => u.AppUserId == cart.AppUserId).ToList().Count-1;
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, count);
             }
             else 
             {
@@ -227,6 +235,8 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
             var cart = _contextUoW.ShoppingCart.GetFirstOrDefault(u => u.Id == cartId);          
             _contextUoW.ShoppingCart.Remove(cart);
             _contextUoW.Save();
+            var count = _contextUoW.ShoppingCart.GetAll(u => u.AppUserId == cart.AppUserId).ToList().Count;
+            HttpContext.Session.SetInt32(StaticDetails.SessionCart, count);
             return RedirectToAction(nameof(Index));
         }
         private double GetPriceBasedOnQuantity(double quantity, double price,double price50,double price100)

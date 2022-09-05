@@ -1,5 +1,6 @@
 ﻿using HeavenofBooks.DataAccess.Repository.IRepository;
 using HeavenofBooks.Models;
+using HeavenofBooks.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -47,11 +48,16 @@ namespace HeavenofBooksWeb.Areas.Customer.Controllers
             if (cartFromDb ==null)
             {
                 _contextUoW.ShoppingCart.Add(shoppingCart);
-                TempData["Success"] = "Product added into cart successfully.";
+                _contextUoW.Save();
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart,
+                    _contextUoW.ShoppingCart.GetAll(u => u.AppUserId == claim.Value).ToList().Count);
+                TempData["success"] = "Product added into cart successfully.";
+               
             }
             else
-            {
+            {                
                 _contextUoW.ShoppingCart.IncrementCount(cartFromDb, shoppingCart.Counter);
+                _contextUoW.Save();
             }
             
             _contextUoW.Save();

@@ -15,3 +15,5 @@ C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Deb
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.pdb
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\HeavenofBooks.DataAccess.genruntimeconfig.cache
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\obj\Debug\net6.0\ref\HeavenofBooks.DataAccess.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.Utility.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooks.Data\bin\Debug\net6.0\HeavenofBooks.Utility.pdb

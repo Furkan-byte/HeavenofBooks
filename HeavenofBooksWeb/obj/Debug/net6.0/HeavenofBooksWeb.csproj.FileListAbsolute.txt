@@ -588,3 +588,7 @@ C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\HeavenofBooks.Utility.dll
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\HeavenofBooks.Utility.pdb
 C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\Stripe.net.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\MailKit.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\MimeKit.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\pc\source\repos\HeavennofBooks\HeavenofBooks\HeavenofBooksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
