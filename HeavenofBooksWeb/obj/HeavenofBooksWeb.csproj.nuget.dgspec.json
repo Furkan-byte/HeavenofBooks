@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj": {}
+    "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj": {
+    "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj",
         "projectName": "HeavenofBooks.DataAccess",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\obj\\",
+        "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\yildi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yildi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj"
+              "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj": {
+                "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj"
               },
-              "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj"
+              "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
+                "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj"
               }
             }
           }
@@ -79,7 +76,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -88,24 +86,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj": {
+    "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj",
+        "projectUniqueName": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj",
         "projectName": "HeavenofBooks.Models",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Models\\obj\\",
+        "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\HeavenofBooks.Models.csproj",
+        "packagesPath": "C:\\Users\\yildi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yildi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,7 +141,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -155,24 +151,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
+    "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj",
         "projectName": "HeavenofBooks.Utility",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\obj\\",
+        "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj",
+        "packagesPath": "C:\\Users\\yildi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yildi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -217,7 +210,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -226,24 +220,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj": {
+    "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
+        "projectUniqueName": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
         "projectName": "HeavenofBooksWeb",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooksWeb\\obj\\",
+        "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooksWeb\\HeavenofBooksWeb.csproj",
+        "packagesPath": "C:\\Users\\yildi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooksWeb\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yildi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -257,11 +248,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj"
+              "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Data\\HeavenofBooks.DataAccess.csproj"
               },
-              "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\HeavennofBooks\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj"
+              "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj": {
+                "projectPath": "C:\\Users\\yildi\\OneDrive\\Masaüstü\\Projects\\HeavenofBooks\\HeavenofBooks.Utility\\HeavenofBooks.Utility.csproj"
               }
             }
           }
@@ -321,7 +312,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -333,7 +325,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
